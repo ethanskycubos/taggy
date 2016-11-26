@@ -11,4 +11,3 @@ class LessonStub extends Eloquent
 
     public $table = 'lessons';
 }
-
