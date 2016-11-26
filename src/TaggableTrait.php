@@ -130,7 +130,23 @@ trait TaggableTrait
             return $this->getTagModels([$tags->slug]);
         }
 
-        return $tags;
+        // Assume a collection
+        return $this->filterTagsCollection($tags);
+    }
+
+    /**
+     * Filter Tags in a Collection to make sure they are actually
+     * an instance of a model. We're not checking for a Tag
+     * model here, because another model name may be used.
+     *
+     * @param  Illuminate\Support\Collection $tags
+     * @return Illuminate\Support\Collection
+     */
+    private function filterTagsCollection(Collection $tags)
+    {
+        return $tags->filter(function ($tag) {
+            return $tag instanceof Model;
+        });
     }
 
     /**

@@ -91,8 +91,13 @@ class TaggyModelUsageTest extends TestCase
     }
 
     /** @test */
-    public function non_tag_models_are_filtered()
+    public function non_models_are_filtered_when_using_collection()
     {
-        $this->assertTrue(true);
+        $tagsCollection = \TagStub::whereIn('slug', ['laravel', 'testing'])->get();
+        $tagsCollection->push('not a tag model'); // ¯\_(ツ)_/¯
+
+        $this->lesson->tag($tagsCollection);
+
+        $this->assertCount(2, $this->lesson->tags);
     }
 }
