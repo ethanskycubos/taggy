@@ -1,0 +1,33 @@
+{
+    "name": "codecourse/taggy",
+    "description": "An Eloquent tagging package for Laravel",
+    "authors": [
+        {
+            "name": "Alex Garrett",
+            "email": "alex@codecourse.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Codecourse\\Taggy\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=5.5.0",
+        "illuminate/database": ">= 5.0",
+        "illuminate/support": ">= 5.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.0",
+        "phpunit/phpunit": "~4.0",
+        "mockery/mockery": "~0.9",
+        "vlucas/phpdotenv": "~2.0"
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php",
+            "tests/LessonStub.php",
+            "tests/TagStub.php"
+        ]
+    }
+}
